@@ -21,6 +21,7 @@ import io.swagger.v3.oas.annotations.Operation;
 import io.swagger.v3.oas.annotations.media.Content;
 import io.swagger.v3.oas.annotations.media.Schema;
 import io.swagger.v3.oas.annotations.responses.ApiResponse;
+import jakarta.validation.Valid;
 
 @RestController
 public class ProductController {
@@ -37,7 +38,7 @@ public class ProductController {
 			@ApiResponse(responseCode = "400", description = "invaild inputs",
 			content = @Content(schema = @Schema(implementation = ErrorStructure.class))) })
 	@PostMapping("/products")
-	public ResponseEntity<ResponseStructure<Product>> saveProduct(@RequestBody ProductRequast product) {
+	public ResponseEntity<ResponseStructure<Product>> saveProduct(@RequestBody @Valid ProductRequast product) {
 
 		return service.saveProduct(product);
 	}
