@@ -1,33 +1,18 @@
 package com.productentity.dto;
 
+import jakarta.validation.constraints.NotNull;
+import lombok.Getter;
+import lombok.Setter;
+
+@Getter
+@Setter
 public class ProductRequast {
 
+	@NotNull(message = "product name should be not null")
 	private String productName;
+	@NotNull(message = "product price should be not null")
 	private int productPrice;
+	@NotNull(message = "product quantity should be not null")
 	private int quantity;
-
-	public String getProductName() {
-		return productName;
-	}
-
-	public void setProductName(String productName) {
-		this.productName = productName;
-	}
-
-	public int getProductPrice() {
-		return productPrice;
-	}
-
-	public void setProductPrice(int productPrice) {
-		this.productPrice = productPrice;
-	}
-
-	public int getQuantity() {
-		return quantity;
-	}
-
-	public void setQuantity(int quantity) {
-		this.quantity = quantity;
-	}
 
 }
